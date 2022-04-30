@@ -7,9 +7,6 @@ test('google test', async ({ page }) => {
     // Expect a title "to contain" a substring.
     await expect(page).toHaveTitle(/Google/);
 
-    // Click in search box
-    //await page.click('.gLFyf gsfi');
-
     // Fill in google search box with cats
     await page.fill('.gLFyf', 'cats');
 
@@ -17,10 +14,13 @@ test('google test', async ({ page }) => {
     await page.click('.gNO89b');
 
     // Assert cats 2019 film
-    const locator = page.locator('.tF2Cxc:nth-child(7)');
-    await expect(locator).toContainText('Cats (2019) - IMDbhttps://www.imdb.com');
+    const locator = page.locator('xpath=//*[@id="rso"]/div[1]/div/div/div[2]//div/a/h3');
+    await expect(locator).toContainText('Cats (2019 film) - Wikipedia');
 
     // Close page
     await page.close()
 
   });
+
+
+  
